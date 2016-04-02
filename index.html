@@ -1,0 +1,30 @@
+<html ng-app="sampleApp">
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+	<script src="app.js"></script>
+	<script src="messages.controller.js"></script>
+	<script src="messages.service.js"></script>
+
+</head>
+
+<body ng-controller="MessagesController as vm">
+	<p>
+		You can add messages to the firebase database here. Also, note that you can edit existing messages by changing the message
+		itself and as soon as you stop typing, it will save to firebase.
+	</p>
+	<ul>
+		<li ng-repeat="message in vm.messages">
+			<input ng-model="message.text" ng-change="vm.messages.$save(message)" />
+			<button ng-click="vm.messages.$remove(message)">Delete Message</button>
+		</li>
+	</ul>
+	<form ng-submit="vm.addMessage()">
+		<input ng-model="vm.newMessageText" />
+		<button type="submit">Add Message</button>
+	</form>
+</body>
+
+</html>
