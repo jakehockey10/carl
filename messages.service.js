@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+	'use strict';
 
 	angular
 		.module('sampleApp')
@@ -13,7 +13,7 @@
 		};
 
 		var ref = new Firebase("https://crackling-fire-1986.firebaseio.com");
-		
+
 		return service;
 
 		////////////////
@@ -22,10 +22,10 @@
 				all: $firebaseArray(ref.child('messages'))
 			}
 		}
-		
+
 		function addMessage(text, messages) {
 			messages.$add({ text: text });
 		}
-		
+
 	}
 })();

@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+	'use strict';
 
 	angular
 		.module('sampleApp')
@@ -8,10 +8,10 @@
 	MessagesController.$inject = ['MessagesService'];
 	function MessagesController(MessagesService) {
 		var vm = this;
-		
+
 		vm.messages = MessagesService.getMessages(vm).all;
-		
-		vm.addMessage = function() {
+
+		vm.addMessage = function () {
 			MessagesService.addMessage(vm.newMessageText, vm.messages);
 			vm.newMessageText = '';
 		};
